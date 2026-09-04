@@ -1,10 +1,15 @@
 import NavBar from "../components/NavBar"
-
-
+// import { Walletcards } from "lucide-react";
+import { WalletCards } from "lucide-react";
+import "../css/header.css"
 function Header(){
     return<>
     <div className="header">
-        <h1>My expense</h1>
+        <div className="logo">
+  <WalletCards size={30} />
+        <span>Expanse Tracker</span>
+        </div>
+      
         <NavBar/>
     </div>
     

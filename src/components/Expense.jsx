@@ -1,15 +1,23 @@
-import { useState } from "react";
-import { handleInput, handleSubmit } from "../services/expense";
+import { useRef, useState } from "react";
+import { handleInput, handleKey, handleSubmit } from "../services/expense";
 import "../css/expense.css"
+import { useNavigate } from "react-router-dom";
+
 function Expense() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [date, setDate] = useState("");
   const [category, setCategory] = useState("");
+  const priceRef=useRef()
+  const btnSubmit=useRef()
+  const dateRef=useRef()
+  const categoryRef=useRef()
+
+  const navigate=useNavigate()
   return (
     <div className="expense">
       <h2>Add Expense</h2>
-      <form>
+      <form  onSubmit={(e)=>handleSubmit(e,navigate)}>
         <div className="expense-name">
           <label>Expense Name</label>
           <input
@@ -17,7 +25,9 @@ function Expense() {
             placeholder="expense name"
             value={name}
             name="name"
+            autoFocus
             onChange={(e) => handleInput(e,setName)}
+            onKeyDown={(e)=>handleKey(e,priceRef)}
             required
           />
         </div>
@@ -27,9 +37,11 @@ function Expense() {
             type="number"
             placeholder="expense price"
             value={price}
-            min="0"
+            ref={priceRef}
+            min="1"
             name="price"
             onChange={(e) =>handleInput(e,setPrice)}
+             onKeyDown={(e)=>handleKey(e,dateRef)}
             required
           />
         </div>
@@ -37,7 +49,11 @@ function Expense() {
           <label>Date</label>
           <input
             type="date"
+            name="date"
             value={date}
+            ref={dateRef}
+             onKeyDown={(e)=>handleKey(e,categoryRef)}
+
             onChange={(e) => {handleInput(e,setDate)
 
             }}
@@ -50,9 +66,12 @@ function Expense() {
             name="select"
             id="select"
             value={category}
+            ref={categoryRef}
             onChange={(e) => {
               handleInput(e,setCategory);
             }}
+            onKeyDown={(e)=>handleKey(e,btnSubmit)}
+
             required
           >
             <option value="">Select Category</option>
@@ -70,7 +89,7 @@ function Expense() {
             <option value="other">Other</option>
           </select>
         </div>
-        <button className="btn" onClick={(e)=>handleSubmit(e,name,price,date,category)}>Add Expense</button>
+        <button ref={btnSubmit} className="btn" type="submit">Add Expense</button>
       </form>
     </div>
   );

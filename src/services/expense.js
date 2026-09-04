@@ -1,23 +1,38 @@
-
+import { addExpenses } from "../redux/slice"
+import store from "../redux/store"
 export function handleInput(e,func){
-   
-    if(!e.target.value.checkValidity()){
-        e.target.reportValidity()
-
-        return
-    }
     func(e.target.value)
+   if(e.target.value.trim()===""){
+      e.target.setCustomValidity("Please enter a expense name.")
+        e.target.reportValidity()
+        return
     
+   }
+      e.target.setCustomValidity("")
+
+
     
 }
-export function handleSubmit(event,name,price,date,category){
+export function handleSubmit(event,navigate){
     event.preventDefault()
-   
-    const formData={
-        name,
-        price,
-        date,
-        category
+    const formData=new FormData(event.target)
+    const obj=Object.fromEntries(formData)
+    store.dispatch(addExpenses(obj))
+    navigate("/today-summary")
+
+    
+}
+
+export function handleKey(e,name){
+    // if(!e.target.checkValidity())return;
+    if(e.key==="Enter"&&e.target.id==="select"){
+        e.preventDefault()
+        name.current.click()
+return
     }
-    console.log(formData)
+    if(e.key==="Enter"){
+        
+name.current.focus()
+
+    }
 }
