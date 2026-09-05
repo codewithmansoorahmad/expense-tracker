@@ -1,7 +1,7 @@
 import NavBar from "../components/NavBar"
 // import { Walletcards } from "lucide-react";
 import { WalletCards } from "lucide-react";
-import "../css/header.css"
+import "../css/Header.css"
 function Header(){
     return<>
     <div className="header">

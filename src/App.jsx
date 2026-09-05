@@ -14,6 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<DashBoard/>} />
       <Route path="/add-expense" element={<Expense/>} />
+      <Route path="/add-expense/:id" element={<Expense/>} />
       <Route path="/today-summary" element={<TodaySummary/>} />
       
     </Routes>

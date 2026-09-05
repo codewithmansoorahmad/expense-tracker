@@ -1,23 +1,29 @@
 import { useRef, useState } from "react";
-import { handleInput, handleKey, handleSubmit } from "../services/expense";
-import "../css/expense.css"
-import { useNavigate } from "react-router-dom";
-
+import { handleInput, handleKey, handleSubmit, handleUpdateSubmit } from "../services/expense";
+import "../css/Expense.css"
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 function Expense() {
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [date, setDate] = useState("");
-  const [category, setCategory] = useState("");
+  const {id}=useParams()
+       const expenses=useSelector((state)=>state.expenses.expensesItems)
+
+  const edit=id &&expenses.find((item)=>item.id===id)
+  const todayDate = new Date().toISOString().split("T")[0]
+  const [name, setName] = useState(id?edit.name:"");
+  const [price, setPrice] = useState(id?edit.price:"");
+  const [date, setDate] = useState(id?edit.date:todayDate);
+  const [category, setCategory] = useState(id?edit.category:"");
   const priceRef=useRef()
   const btnSubmit=useRef()
   const dateRef=useRef()
   const categoryRef=useRef()
+  
 
   const navigate=useNavigate()
   return (
     <div className="expense">
-      <h2>Add Expense</h2>
-      <form  onSubmit={(e)=>handleSubmit(e,navigate)}>
+      <h2>{id?"Update Expense":"Add Expense"}</h2>
+      <form  onSubmit={(e)=>!id?handleSubmit(e,navigate):handleUpdateSubmit(id,navigate,e)}>
         <div className="expense-name">
           <label>Expense Name</label>
           <input
@@ -63,7 +69,7 @@ function Expense() {
         <div className="expense-category">
           <label>Add Category</label>
           <select
-            name="select"
+            name="category"
             id="select"
             value={category}
             ref={categoryRef}
@@ -89,7 +95,7 @@ function Expense() {
             <option value="other">Other</option>
           </select>
         </div>
-        <button ref={btnSubmit} className="btn" type="submit">Add Expense</button>
+        <button ref={btnSubmit} className="btn" type="submit">{!id?"Add Expense":"update Expense"}</button>
       </form>
     </div>
   );

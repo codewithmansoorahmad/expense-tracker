@@ -1,0 +1,186 @@
+.today-summary {
+    width: 92%;
+    max-width: 1000px;
+    margin: 25px auto;
+    font-family: Arial, sans-serif;
+}
+
+.head-today {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.head-today h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.head-today p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
+.total-expense {
+    padding: 18px;
+    border-radius: 10px;
+    background: #f4f6f8;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.total-expense h3 {
+    margin: 0 0 5px;
+    font-size: 15px;
+    color: #666;
+}
+
+.total-expense h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.expenses-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.expenses-grid > div {
+    padding: 14px;
+    border: 1px solid #e1e5e9;
+    border-radius: 9px;
+    text-align: center;
+}
+
+.expenses-grid h3 {
+    margin: 0 0 6px;
+    font-size: 13px;
+    color: #666;
+}
+
+.expenses-grid p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.todayExpenses {
+    border: 1px solid #e1e5e9;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.todayExpenses h2 {
+    margin: 0 0 12px;
+    font-size: 20px;
+}
+
+.expenses-main-page {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.expense-page {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid #e5e5e5;
+    border-radius: 7px;
+    background: #fafafa;
+}
+
+.expense-page p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.expense-page p:first-child {
+    font-weight: 600;
+}
+
+.expense-page p:nth-child(2) {
+    font-weight: 600;
+}
+
+.expense-page p:nth-child(3) {
+    color: #777;
+    font-size: 13px;
+}
+
+.expense-page button {
+    border: none;
+    border-radius: 5px;
+    padding: 6px 11px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-edit {
+    background: #2563EB;
+    color: white;
+}
+
+.btn-delete {
+    background: #2563EB;
+    color: white;
+
+}
+
+.btn-add-expense {
+    margin-top: 14px;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    background: #2563EB;
+    color: white;
+
+
+}
+.today-summary button:hover{
+ background: #1D4ED8;
+
+
+}
+.expense-page:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+@media (max-width: 700px) {
+    .head-today {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .expenses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .expense-page {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 450px) {
+    .today-summary {
+        width: 94%;
+    }
+
+    .expenses-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .expense-page {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+}

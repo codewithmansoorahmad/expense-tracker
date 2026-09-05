@@ -1,4 +1,4 @@
-import { addExpenses } from "../redux/slice"
+import { addExpenses, editExpense } from "../redux/slice"
 import store from "../redux/store"
 export function handleInput(e,func){
     func(e.target.value)
@@ -18,11 +18,25 @@ export function handleSubmit(event,navigate){
     const formData=new FormData(event.target)
     const obj=Object.fromEntries(formData)
     store.dispatch(addExpenses(obj))
+    alert("expense added successfully")
     navigate("/today-summary")
 
     
 }
 
+
+export function handleUpdateSubmit(id,navigate,event){
+    event.preventDefault()
+    const formData=new FormData(event.target)
+
+    const obj=Object.fromEntries(formData)
+    store.dispatch(editExpense({obj,id}))
+     alert("expense updated successfully successfully")
+    navigate("/today-summary")
+
+
+
+}
 export function handleKey(e,name){
     // if(!e.target.checkValidity())return;
     if(e.key==="Enter"&&e.target.id==="select"){
@@ -30,8 +44,9 @@ export function handleKey(e,name){
         name.current.click()
 return
     }
-    if(e.key==="Enter"){
+    if(e.key==="Enter"&&e.target.checkValidity()){
         
+        e.preventDefault()
 name.current.focus()
 
     }
