@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { deleteExpense } from "../redux/slice"
 import "../css/TodaySummary.css"
-import YasterDaySummary from "./YasterdaySummary"
-import TodayExpensesPages from "./todayExpensePages"
+import YasterDaySummary from "../components/YasterdaySummary"
+import TodayExpensesPages from "../components/todayExpensePages"
+import TodaySummaryHead from "../components/TodaySummaryHead"
 
 function TodaySummary(){
   const todayDateItems = new Date().toISOString().split("T")[0]
@@ -24,33 +24,7 @@ function TodaySummary(){
 
     return(
         <div className="today-summary">
-            <div className="head-today">
-                <h1>Today's Expenses</h1>
-                <p>{todayDate}</p>
-            </div>
-            <div className="total-expense">
-                <h3>Total spent today</h3>
-                <h1>RS: {totalExpense}</h1>
-            </div>
-            <div className="expenses-grid">
-                <div className="expenses-length">
-                    <h3>Expenses</h3>
-                    <p>{todayExpenses.length}</p>
-                </div>
-                <div className="highest-expense-price">
-                    <h3>Highest expense price</h3>
-                    <p>{highestPrice}</p> 
-                </div>
-                <div className="lowest-expense-price">
-                    <h3>Lowest expense price</h3>
-                    <p>{LowestPrice}</p> 
-                </div>
-                <div className="average-expense-price">
-                    <h3>Average Price</h3>
-                    <p>{averagePrice?averagePrice:"N/A"}</p>
-                    
-                </div>
-            </div>
+            <TodaySummaryHead todayDate={todayDate} averagePrice={averagePrice} highestPrice={highestPrice} LowestPrice={LowestPrice} todayExpenses={todayExpenses} totalExpense={totalExpense}/>
                 {
                     todayExpenses.length>0?<TodayExpensesPages todayExpenses={todayExpenses} navigate={navigate} dispatch={dispatch}/>:<YasterDaySummary/>
                 }

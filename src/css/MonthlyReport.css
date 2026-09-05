@@ -1,0 +1,28 @@
+.days{
+    width: 200px;
+}
+.days-day{
+    display: grid;
+    /* gap: 10px; */
+    grid-template-columns: repeat(7,1fr);
+    font-size: 12px;
+    text-transform: capitalize;
+    width: 100%;
+}
+.days-grid{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    /* gap: 10px; */
+    font-size: 12px;
+    width: 100%;
+
+}
+.days-grid button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.days-grid button:hover{
+    background: rgb(219, 212, 212);
+    cursor: pointer;
+}

@@ -3,8 +3,8 @@ import { Routes,Route } from "react-router-dom"
 import Header from "./pages/Header"
 import DashBoard from "./pages/DashBoard"
 import Expense from "./components/Expense"
-import TodaySummary from "./components/TodaySummary"
-
+import TodaySummary from "./pages/TodaySummary"
+import MonthlyReport from "./pages/MonthlyReport"
 function App() {
 
   return (
@@ -16,6 +16,8 @@ function App() {
       <Route path="/add-expense" element={<Expense/>} />
       <Route path="/add-expense/:id" element={<Expense/>} />
       <Route path="/today-summary" element={<TodaySummary/>} />
+      <Route path="/monthly-report" element={<MonthlyReport/>} />
+      
       
     </Routes>
      

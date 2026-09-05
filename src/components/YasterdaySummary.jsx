@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 
 function YasterDaySummary(){
-  const todayDate = new Date().toISOString().split("T")[0]
-     const dispatch=useDispatch()
+
      const expenses=useSelector((state)=>state.expenses.expensesItems)
      const yasterdayDate=new Date()
      yasterdayDate.setDate(yasterdayDate.getDate() -1)
@@ -15,7 +14,7 @@ const formatedYasterday=yasterdayDate.toISOString().split("T")[0]
             <h3>yasterday summary</h3>
             {
                 yasterday.map((item)=>{
-                    return <div className="expense-page">
+                    return <div className="expense-page" key={item.id}>
                         <p>{item.name}</p>
                         <p>{item.price}</p>
                         <p>{item.date}</p>
