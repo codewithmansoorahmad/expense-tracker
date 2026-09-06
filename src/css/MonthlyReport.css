@@ -1,28 +1,180 @@
-.days{
-    width: 200px;
+.months,
+.days,
+.monthly-statistics,
+.category-chart,
+.monthly-expense {
+    width: 94%;
+    max-width: 700px;
+    margin: 20px auto;
 }
-.days-day{
-    display: grid;
-    /* gap: 10px; */
-    grid-template-columns: repeat(7,1fr);
-    font-size: 12px;
-    text-transform: capitalize;
-    width: 100%;
-}
-.days-grid{
-    display: grid;
-    grid-template-columns: repeat(7,1fr);
-    /* gap: 10px; */
-    font-size: 12px;
-    width: 100%;
 
+.months h3 {
+    margin: 0 0 12px;
+    text-align: center;
+    font-size: 22px;
 }
-.days-grid button{
+
+.reduce-increase-month {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.reduce-increase-month button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
     border: none;
-    background: none;
+    border-radius: 7px;
+    background: #f1f1f1;
     cursor: pointer;
 }
-.days-grid button:hover{
-    background: rgb(219, 212, 212);
+
+.reduce-increase-month button:hover {
+    background: #ddd;
+}
+
+.date {
+    display: flex;
+    gap: 7px;
+}
+
+.date p {
+    margin: 0;
+    font-size: 17px;
+}
+
+/* Calendar */
+
+.days-day,
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.days-day {
+    margin-bottom: 6px;
+}
+
+.days-day p {
+    margin: 0;
+    font-size: 12px;
+    color: #777;
+}
+
+.days-grid {
+    gap: 5px;
+}
+
+.days-grid button {
+    aspect-ratio: 1;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: white;
     cursor: pointer;
+}
+
+.days-grid button:hover {
+    background: #eee;
+}
+
+/* Statistics */
+
+.monthly-statistics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.monthly-statistics > div {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.monthly-statistics h3 {
+    margin: 0 0 6px;
+    font-size: 13px;
+    color: #777;
+}
+
+.monthly-statistics p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.total-month-spent {
+    grid-column: span 3;
+}
+
+/* Chart */
+
+.category-chart {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+/* Monthly expenses */
+
+.monthly-expense {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.monthly-expense h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.expense-page-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.expense-page-item p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .monthly-statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .total-month-spent {
+        grid-column: span 2;
+    }
+
+    .expense-page-item {
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+}
+
+@media (max-width: 400px) {
+    .monthly-statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .total-month-spent {
+        grid-column: span 1;
+    }
 }

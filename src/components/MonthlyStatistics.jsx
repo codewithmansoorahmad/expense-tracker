@@ -1,18 +1,13 @@
-export default function MonthlyStatistics({selectedDay,selectedYear,monthIndex,expenses}){
-const month=String(monthIndex).padStart(2,"0")
-let array=[month,selectedDay,selectedYear]
-let selectedDate=array.join("-");
-console.log(expenses)
-let monthData=expenses.length>0?expenses.filter((item)=>{
-    return item.date.split("-")[1]===month
-}):[]
-const totalPrice=monthData?.reduce((acc,curr)=>acc+Number(curr.price),0)||0
-const averagePrice=(totalPrice/monthData.length)||0
-const highestExpense=monthData?.reduce((acc,curr)=>Number(acc.price)>Number(curr.price)?acc:curr).price||0
-const lowestExpense=monthData?.reduce((acc,curr)=>Number(acc.price)<Number(curr.price)?acc:curr).price||0
+export default function MonthlyStatistics({monthData}){
 
 
-    return <div className="monthky-statisctics">
+const totalPrice=monthData.length>0?monthData.reduce((acc,curr)=>acc+Number(curr.price),0):0
+const averagePrice=(totalPrice/monthData?.length)||0
+const highestExpense= monthData.length>0?monthData?.reduce((acc,curr)=>Number(acc.price)>Number(curr.price)?acc:curr).price:0
+const lowestExpense=monthData.length>0?monthData?.reduce((acc,curr)=>Number(acc.price)<Number(curr.price)?acc:curr).price:0
+
+
+    return <div className="monthly-statistics">
         <div className="total-month-spent">
             <h3>Total Spent</h3>
             <p>RS:{totalPrice.toLocaleString()}</p>
