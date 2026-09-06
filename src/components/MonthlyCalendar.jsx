@@ -1,14 +1,8 @@
-import { useState } from "react";
-import { months } from "../services/monthlyReport";
 
-function MonthlyCalendar(){
-    let month=9;
-    let year=2026
-    const yearMonths=months
-    
-    const firstDay=new Date(year,month,1).getDay()
-    const monthDays=new Date(year,month +1,0).getDate()
-    const [selectedDay,setSelectedDay]=useState("")
+function MonthlyCalendar({monthIndex,selectedYear,selectedDay,setSelectedDay}){
+
+    const firstDay=new Date(selectedYear,monthIndex,1).getDay()
+    const monthDays=new Date(selectedYear,monthIndex +1,0).getDate()
 
     let days=[]
     for(let i=0;i<firstDay;i++){

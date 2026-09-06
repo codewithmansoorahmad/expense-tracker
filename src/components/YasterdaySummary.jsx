@@ -1,16 +1,14 @@
-import { useDispatch, useSelector } from "react-redux"
 
-function YasterDaySummary(){
+function YasterDaySummary({yasterday}){
+    console.log(yasterday)
 
-     const expenses=useSelector((state)=>state.expenses.expensesItems)
-     const yasterdayDate=new Date()
-     yasterdayDate.setDate(yasterdayDate.getDate() -1)
-const formatedYasterday=yasterdayDate.toISOString().split("T")[0]
-     const yasterday=expenses.filter((item)=>item.date===formatedYasterday)
+    //  const expenses=useSelector((state)=>state.expenses.expensesItems)
+   
 
 
     return(
         <div>
+            
             <h3>yasterday summary</h3>
             {
                 yasterday.map((item)=>{

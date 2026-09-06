@@ -33,9 +33,6 @@ export function handleUpdateSubmit(id,navigate,event){
     store.dispatch(editExpense({obj,id}))
      alert("expense updated successfully successfully")
     navigate("/today-summary")
-
-
-
 }
 export function handleKey(e,name){
     // if(!e.target.checkValidity())return;

@@ -45,7 +45,6 @@ const ExpenseSLice=createSlice({
             if(index!=-1){
                 state.expensesItems[index]={...action.payload.obj,id,time}
             localStorage.setItem("cart",JSON.stringify(state.expensesItems))
-
             }
 
            

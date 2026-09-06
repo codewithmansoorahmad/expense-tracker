@@ -21,12 +21,18 @@ function TodaySummary(){
   const averagePrice=(totalExpense/todayExpenses.length).toFixed(2)
   const highestPrice=todayExpenses.length>0?todayExpenses.reduce((acc,curr)=> curr.price>acc.price?curr:acc).price:"N/A"
   const LowestPrice=todayExpenses.length?todayExpenses.reduce((acc,curr)=>curr.price<acc.price?curr:acc).price:"N/A"
+       const yasterdayDate=new Date()
+     yasterdayDate.setDate(yasterdayDate.getDate() -1)
+const formatedYasterday=yasterdayDate.toISOString().split("T")[0]
+     const yasterday=expenses.filter((item)=>item.date===formatedYasterday)
+   
+
 
     return(
         <div className="today-summary">
             <TodaySummaryHead todayDate={todayDate} averagePrice={averagePrice} highestPrice={highestPrice} LowestPrice={LowestPrice} todayExpenses={todayExpenses} totalExpense={totalExpense}/>
                 {
-                    todayExpenses.length>0?<TodayExpensesPages todayExpenses={todayExpenses} navigate={navigate} dispatch={dispatch}/>:<YasterDaySummary/>
+                    todayExpenses.length>0?<TodayExpensesPages todayExpenses={todayExpenses} navigate={navigate} dispatch={dispatch}/>:yasterday.length>0 &&<YasterDaySummary yasterday={yasterday}/>
                 }
 
                     <button className="btn-add-expense" onClick={()=>navigate("/add-expense")}>Add Expense</button>
