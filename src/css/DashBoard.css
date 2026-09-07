@@ -1,3 +1,55 @@
 .dashboard-head{
-    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+
+}
+.dashboard-statistics{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: 30px;
+    padding: 20px;
+
+}
+.dashboard-statistics div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid #ddd;
+    padding: 12px;
+    background-color: #fff;
+    margin: 4px;
+}
+.recentExpense{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 12px;
+    /* margin-top: 40px; */
+    margin: 12px;
+
+
+}
+.view-all{
+    display: flex;
+    justify-content: space-between;
+}
+.recentExpense h3{
+    text-align: center;
+
+}
+.recent-expense{
+    /* display: flex;
+    justify-content: space-between; */
+    /* align-items: center; */
+    flex-direction: row;
+    border: 1px solid #ddd;
+    background-color:#fff;
+    margin: 12px;
+    padding: 12px;
+      display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+
 }

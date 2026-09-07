@@ -8,7 +8,7 @@ function Header() {
       <div className="header">
         <div className="logo">
           <WalletCards size={30} />
-          <span>Expanse Tracker</span>
+          <span>Expanse<span className="tracker">Tracker</span></span>
         </div>
 
         <NavBar />

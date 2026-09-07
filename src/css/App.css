@@ -5,3 +5,27 @@
 main{
     margin-left: 220px;
 }
+:root {
+    --dark-green: #064E3B;
+    --green: #047857;
+    --medium-green: #34A978;
+    --light-green: #E8F7F0;
+
+    --dark-text: #17324D;
+    --text: #52677D;
+    --muted-text: #718096;
+
+    --white: #FFFFFF;
+    --light-bg: #F8FAFC;
+    --border: #E2E8F0;
+
+    --blue-light: #DFF3F5;
+    --yellow-light: #FFF1D2;
+    --pink-light: #FFE4EE;
+    --purple-light: #EDE2FF;
+}
+@media (max-width:700px){
+    main{
+        margin-left: 0;
+    }
+}

@@ -5,11 +5,10 @@ export default function DashBoardStatistics(){
 const expenses=useSelector((state)=>state.expenses.expensesItems)
 const totalPrice=expenses.length>0?expenses.reduce((acc,curr)=>acc+Number(curr.price),0):0
 const months=monthsCode
-const todayDay=new Date().toLocaleDateString("en-us",{day:"numeric"})
 const todayMonth=new Date().toLocaleDateString("en-us",{month:"long"})
 const todayYear=new Date().toLocaleDateString("en-us",{year:"numeric"})
 const monthIndex=months.findIndex((item)=>item===todayMonth)+1
-const date=[todayYear,todayMonth,todayDay].join("-")
+const todayDate=new Date().toISOString().split("T")[0]
 
 
 const monthItems=expenses.filter((item)=>{
@@ -18,8 +17,8 @@ const monthItems=expenses.filter((item)=>{
     return year===todayYear &&month===String(monthIndex).padStart(2,"0")
 })
 console.log(monthItems)
-let todayItems=monthItems.filter((item)=>item.date===date)
-const todayPrice=todayItems.reduce((acc,curr)=>acc+Number(curr.price),0)
+let todayItems=monthItems.filter((item)=>item.date===todayDate)
+const todayPrice=todayItems.length>0?todayItems.reduce((acc,curr)=>acc+Number(curr.price),0):0
 
 const thisMonth=monthItems.length>0?monthItems.reduce((acc,curr)=>acc+Number(curr.price),0):0
 const expensivePurchase=expenses.reduce((acc,curr)=>
