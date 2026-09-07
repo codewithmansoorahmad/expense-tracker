@@ -4,6 +4,7 @@ const ExpenseSLice=createSlice({
     name:"expense",
     initialState:{
         expensesItems:JSON.parse(localStorage.getItem("cart"))||[],
+        
 
     },
     reducers:{

@@ -1,4 +1,5 @@
 .months,
+.monthly-today-expense,
 .days,
 .monthly-statistics,
 .category-chart,
@@ -22,6 +23,22 @@
     border: 1px solid #ddd;
     border-radius: 10px;
 }
+.btn {
+     margin-top: 14px;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    background: #2563EB;
+    color: white;
+
+}
+.btn:hover{
+    background-color:#1D4ED8 ;
+
+}
+
 
 .reduce-increase-month button {
     display: flex;
@@ -51,6 +68,16 @@
 
 /* Calendar */
 
+.days {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
 .days-day,
 .days-grid {
     display: grid;
@@ -58,25 +85,24 @@
     text-align: center;
 }
 
-.days-day {
-    margin-bottom: 6px;
-}
-
 .days-day p {
-    margin: 0;
+    margin: 0 0 8px;
     font-size: 12px;
     color: #777;
 }
 
 .days-grid {
-    gap: 5px;
+    gap: 4px;
 }
 
 .days-grid button {
-    aspect-ratio: 1;
-    border: 1px solid #e5e5e5;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    justify-self: center;
+    border: none;
     border-radius: 6px;
-    background: white;
+    background: transparent;
     cursor: pointer;
 }
 
@@ -84,6 +110,20 @@
     background: #eee;
 }
 
+.month-today-expense {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.no-exp{
+    font-size: 14px;
+    margin-top: 12px;
+}
 /* Statistics */
 
 .monthly-statistics {

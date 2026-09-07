@@ -1,4 +1,5 @@
 export default function TodaySummaryHead({todayDate,totalExpense,todayExpenses,highestPrice,LowestPrice,averagePrice}){
+    console.log(averagePrice)
     return <div>
         <div className="head-today">
                 <h1>Today's Expenses</h1>
@@ -23,7 +24,7 @@ export default function TodaySummaryHead({todayDate,totalExpense,todayExpenses,h
                 </div>
                 <div className="average-expense-price">
                     <h3>Average Price</h3>
-                    <p>{averagePrice?averagePrice:"N/A"}</p>
+                    <p>{averagePrice}</p>
                     
                 </div>
             </div>

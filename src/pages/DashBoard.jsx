@@ -1,5 +1,15 @@
+import DashBoardHead from "../components/DashboardHead"
+import RecentButtons from "../components/DashBoardRecentExpenseButton"
+import RecentExpense from "../components/DashBoardRecentExpenses"
+import DashBoardStatistics from "../components/DashBoardStatistics"
+import "../css/DashBoard.css"
 function DashBoard(){
     return<>
-    <h1>dashboard</h1></>
+    <DashBoardHead/>
+    <DashBoardStatistics/>
+    <RecentExpense/>
+    <RecentButtons/>
+    </>
+
 }
 export default DashBoard

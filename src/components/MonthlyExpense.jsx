@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 export default function MonhtlyExpense({
   monthData,
   selectedMonth,
 }) {
   const todayMonth = new Date().toLocaleDateString("en-us", { month: "long" });
-  const todayYear = new Date().toLocaleDateString("en-us", { year: "numeric" });
+  
+  const navigate=useNavigate()
 
   return (
     <div className="monthly-expense">
@@ -17,7 +20,7 @@ export default function MonhtlyExpense({
           </div>
         );
       })}
-      {todayMonth === selectedMonth && <button>Add Expense</button>}
+      {todayMonth === selectedMonth  && <button onClick={()=>navigate("/add-expense")} className="btn">Add More Expense</button>}
     </div>
   );
 }

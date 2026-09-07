@@ -10,6 +10,7 @@ function App() {
   return (
     <>
     <Header/>
+    <main>
     {/* <AddExpense/> */}
     <Routes>
       <Route path="/" element={<DashBoard/>} />
@@ -20,6 +21,7 @@ function App() {
       
       
     </Routes>
+    </main>
      
     </>
   )

@@ -1,8 +1,11 @@
 export default function MonthlyStatistics({monthData}){
+    const todayDay=new Date().toLocaleDateString("en-us",{
+        day:"numeric"
+    })
 
 
 const totalPrice=monthData.length>0?monthData.reduce((acc,curr)=>acc+Number(curr.price),0):0
-const averagePrice=(totalPrice/monthData?.length)||0
+const averagePrice=(totalPrice/todayDay)||0
 const highestExpense= monthData.length>0?monthData?.reduce((acc,curr)=>Number(acc.price)>Number(curr.price)?acc:curr).price:0
 const lowestExpense=monthData.length>0?monthData?.reduce((acc,curr)=>Number(acc.price)<Number(curr.price)?acc:curr).price:0
 
@@ -17,7 +20,7 @@ const lowestExpense=monthData.length>0?monthData?.reduce((acc,curr)=>Number(acc.
             <p>{monthData.length}</p>
         </div>
         <div className="average">
-            <h3>Average</h3>
+            <h3>Average Day Expense</h3>
             <p>RS:{averagePrice.toLocaleString()}</p>
         </div>
 <div className="highest">

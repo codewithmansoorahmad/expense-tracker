@@ -31,11 +31,7 @@ function MonthlyReport() {
       : [];
   let array = [selectedYear, month, selectedDay];
   let selectedDate = array.join("-");
-  console.log(selectedDate);
-  console.log(selectedDay);
-  console.log(selectedYear);
-  console.log(selectedMonth);
-  console.log(monthData);
+  
 
   return (
     <div>
@@ -67,7 +63,7 @@ function MonthlyReport() {
       />
       {monthData.length >0  && <CategoryChart monthData={monthData} />}
       {monthData.length >0 && (
-        <MonhtlyExpense monthData={monthData} selectedYear={selectedYear} />
+        <MonhtlyExpense monthData={monthData} selectedYear={selectedYear} selectedMonth={selectedMonth}/>
       )}
     </div>
   );

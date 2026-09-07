@@ -5,19 +5,20 @@ function MonthTodayExpense({ monthData, selectedDate }) {
           return item.date === selectedDate;
         })
       : [];
-  console.log(todayExpenses);
+ 
   return (
-    <div>
-      <h3>{selectedDate} Expenses</h3>
-      {todayExpenses.map((item) => {
+    <div className="monthly-today-expense" style={{border:"1px solid #ddd",padding:"5px 5px"}}>
+      <h3 style={{textAlign:"center",borderBottom:"1px solid #ddd",fontSize:"16px"}}>{selectedDate} Expenses</h3>
+      {todayExpenses.length>0?todayExpenses.map((item) => {
         return (
-          <div className="expense-page" key={item.id}>
+          <div className="expense-page-item" key={item.id}>
             <p>{item.name}</p>
             <p>{item.price}</p>
             <p>{item.time}</p>
           </div>
         );
-      })}
+      }):<h3 className="no-exp">NO Expenses Was Added On this date</h3>
+    }
     </div>
   );
 }
