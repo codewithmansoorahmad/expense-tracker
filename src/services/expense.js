@@ -19,7 +19,7 @@ export function handleSubmit(event,navigate){
     const obj=Object.fromEntries(formData)
     store.dispatch(addExpenses(obj))
     alert("expense added successfully")
-    navigate("/today-summary")
+    navigate(-1)
 
     
 }
@@ -32,15 +32,11 @@ export function handleUpdateSubmit(id,navigate,event){
     const obj=Object.fromEntries(formData)
     const date=formData.get("date")
     console.log(date)
-    const todayDate=new Date().toISOString().split("T")[0]
     store.dispatch(editExpense({obj,id}))
      alert("expense edited successfully")
-if(todayDate===date){
-    navigate("/today-summary")
+    navigate(-1)
+    console.log("today summary")
 
-
-}
-navigate(-1)
 }
 export function handleKey(e,name){
     // if(!e.target.checkValidity())return;

@@ -173,12 +173,11 @@
 
 /* Chart */
 
-.category-chart {
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-sizing: border-box;
-    overflow-x: auto;
+
+.chart-container {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
 }
 
 /* Monthly expenses */

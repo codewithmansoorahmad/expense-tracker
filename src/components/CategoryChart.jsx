@@ -1,4 +1,4 @@
-import { BarChart, XAxis, YAxis, Bar, CartesianGrid, Tooltip } from "recharts";
+import { BarChart, XAxis,ResponsiveContainer, YAxis, Bar, CartesianGrid, Tooltip } from "recharts";
 
 function CategoryChart({ monthData }) {
   const totalCategories = monthData.reduce((acc, curr) => {
@@ -15,13 +15,17 @@ function CategoryChart({ monthData }) {
   console.log(totalCategories);
   return (
     <div className="category-chart">
-      <BarChart width={600} height={400} data={obj}>
+      <ResponsiveContainer width="100%" height={300}>
+
+      <BarChart data={obj}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="category" />
         <YAxis tickFormatter={(value) => `Rs: ${value}`} />
         <Tooltip formatter={(value) => `Rs: ${value}`} />
         <Bar dataKey="total" barSize={30}/>
       </BarChart>
+      </ResponsiveContainer>
+
     </div>
   );
 }
