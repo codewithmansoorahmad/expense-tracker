@@ -17,7 +17,7 @@ function TodaySummary(){
     day:"2-digit",
     year:"numeric"
   })
-  const totalExpense=todayExpenses.reduce((acc,curr)=>acc+Number(curr.price),0)
+  const totalExpense=todayExpenses.length>0?todayExpenses.reduce((acc,curr)=>acc+Number(curr.price),0):0
   const averagePrice=todayExpenses.length>0?(totalExpense/todayExpenses.length).toFixed(2):0
   console.log(averagePrice)
   const highestPrice=todayExpenses.length>0?todayExpenses.reduce((acc,curr)=> curr.price>acc.price?curr:acc).price:0
@@ -25,7 +25,7 @@ function TodaySummary(){
        const yasterdayDate=new Date()
      yasterdayDate.setDate(yasterdayDate.getDate() -1)
 const formatedYasterday=yasterdayDate.toISOString().split("T")[0]
-     const yasterday=expenses.filter((item)=>item.date===formatedYasterday)
+     const yasterday=expenses.length>0?expenses.filter((item)=>item.date===formatedYasterday):[]
    
 
 

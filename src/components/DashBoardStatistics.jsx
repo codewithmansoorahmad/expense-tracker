@@ -21,10 +21,10 @@ let todayItems=monthItems.filter((item)=>item.date===todayDate)
 const todayPrice=todayItems.length>0?todayItems.reduce((acc,curr)=>acc+Number(curr.price),0):0
 
 const thisMonth=monthItems.length>0?monthItems.reduce((acc,curr)=>acc+Number(curr.price),0):0
-const expensivePurchase=expenses.reduce((acc,curr)=>
+const expensivePurchase=expenses.length>0?expenses.reduce((acc,curr)=>
     Number(acc.price)>Number(curr.price)?acc:curr
-)
-const thisMonthExpensive=monthItems.reduce((acc,curr)=>Number(acc.price)>Number(curr.price)?acc:curr)
+):0
+const thisMonthExpensive=monthItems.length>0?monthItems.reduce((acc,curr)=>Number(acc.price)>Number(curr.price)?acc:curr):0
 
     return (
         <div className="dashboard-statistics">
