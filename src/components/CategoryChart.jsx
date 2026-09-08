@@ -19,8 +19,8 @@ function CategoryChart({ monthData }) {
 
       <BarChart data={obj}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="category" />
-        <YAxis tickFormatter={(value) => `Rs: ${value}`} />
+        <XAxis   tick={{ fontSize: 10 }} dataKey="category" />
+        <YAxis   tick={{ fontSize: 10 }} tickFormatter={(value) => `Rs: ${value}`} />
         <Tooltip formatter={(value) => `Rs: ${value}`} />
         <Bar dataKey="total" barSize={30}/>
       </BarChart>
