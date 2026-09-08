@@ -1,55 +1,206 @@
-.dashboard-head{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-top: 20px;
-
-}
-.dashboard-statistics{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    margin-top: 30px;
-    padding: 20px;
-
-}
-.dashboard-statistics div{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 12px;
-    border: 1px solid #ddd;
-    padding: 12px;
-    background-color: #fff;
-    margin: 4px;
-}
-.recentExpense{
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    padding: 12px;
-    /* margin-top: 40px; */
-    margin: 12px;
-
-
-}
-.view-all{
+.dashboard-head {
+    width: 94%;
+    max-width: 900px;
+    margin: 20px auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
-.recentExpense h3{
-    text-align: center;
 
+.dashboard-head h3 {
+    margin: 0;
+    font-size: 22px;
 }
-.recent-expense{
-    /* display: flex;
-    justify-content: space-between; */
-    /* align-items: center; */
-    flex-direction: row;
+
+.dashboard-head p {
+    margin: 0;
+    font-size: 13px;
+    color: #777;
+}
+
+
+/* Statistics */
+
+.dashboard-statistics {
+    width: 94%;
+    max-width: 900px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.dashboard-statistics > div {
+    padding: 14px;
     border: 1px solid #ddd;
-    background-color:#fff;
-    margin: 12px;
-    padding: 12px;
-      display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    border-radius: 8px;
+    background: white;
+    text-align: center;
+}
 
+.dashboard-statistics h3 {
+    margin: 0 0 6px;
+    font-size: 12px;
+    color: #777;
+}
+
+.dashboard-statistics p {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.total-spent {
+    grid-column: span 2;
+    background: #E8F7F0 !important;
+}
+
+.total-spent p {
+    font-size: 23px;
+}
+
+.expensive-item p,
+.this-month-expensive p {
+    color: #B45309;
+}
+
+
+/* Recent Expenses */
+
+.recentExpense {
+    width: 94%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    box-sizing: border-box;
+}
+
+.view-all {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.view-all h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.view-all button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #047857;
+}
+
+.view-all div {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.view-all span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.recent-expense {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+    padding: 9px 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.recent-expense:last-child {
+    border-bottom: none;
+}
+
+.recent-expense p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.recent-expense p:first-child {
+    font-weight: 600;
+}
+
+.recent-expense p:nth-child(2) {
+    color: #047857;
+    font-weight: 600;
+}
+
+.recent-expense p:last-child {
+    color: #777;
+    text-align: right;
+}
+
+
+/* Buttons */
+
+.btns {
+    width: 94%;
+    max-width: 900px;
+    margin: 20px auto;
+    display: flex;
+    gap: 10px;
+}
+
+.btns button {
+    flex: 1;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 7px;
+    background: #047857;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btns button:hover {
+    background: #064E3B;
+}
+
+
+/* Responsive */
+
+@media (max-width: 700px) {
+    .dashboard-statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .total-spent {
+        grid-column: span 2;
+    }
+
+    .dashboard-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 450px) {
+    .dashboard-statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .total-spent {
+        grid-column: span 1;
+    }
+
+    .recent-expense {
+        grid-template-columns: 1fr;
+    }
+
+    .recent-expense p:last-child {
+        text-align: left;
+    }
+
+    .btns {
+        flex-direction: column;
+    }
 }

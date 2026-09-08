@@ -5,6 +5,7 @@ import DashBoard from "./pages/DashBoard"
 import Expense from "./components/Expense"
 import TodaySummary from "./pages/TodaySummary"
 import MonthlyReport from "./pages/MonthlyReport"
+import ViewAllPage from "./pages/ViewAllPage"
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/add-expense/:id" element={<Expense/>} />
       <Route path="/today-summary" element={<TodaySummary/>} />
       <Route path="/monthly-report" element={<MonthlyReport/>} />
+      <Route path="/view-all" element={<ViewAllPage/>}/>
       
       
     </Routes>

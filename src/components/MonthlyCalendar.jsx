@@ -14,12 +14,13 @@ function MonthlyCalendar({
         monthIndex + 1,
         0
     ).getDate();
-
     const today = new Date();
+    const todayDate=today.toLocaleDateString("en-us",{
+        day:"numeric",
+    })
+ 
+    
 
-    const isCurrentMonth =
-        monthIndex === today.getMonth() &&
-        selectedYear === today.getFullYear();
 
     let days = [];
 
@@ -57,12 +58,7 @@ function MonthlyCalendar({
                             <button
                                 key={index}
                                 className={
-                                    isCurrentMonth &&
-                                    item === today.getDate()
-                                        ? "btn-today"
-                                        : item === Number(selectedDay)
-                                        ? "btn-selected"
-                                        : "btn-day"
+                                    todayDate==item &&Number(todayDate)===Number(selectedDay) ?"btn-today":item==Number(selectedDay)?"btn-date":"btn"
                                 }
                                 onClick={() => handleClick(item)}
                             >

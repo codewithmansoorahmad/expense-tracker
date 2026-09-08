@@ -1,0 +1,98 @@
+.view-all-page {
+    width: 94%;
+    max-width: 900px;
+    margin: 25px auto;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 15px;
+    padding: 0;
+    border: none;
+    border-radius: 7px;
+    background: #f1f1f1;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background: #e5e5e5;
+}
+
+.expense-page {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr 1.2fr auto auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.expense-page p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.expense-page p:first-child {
+    font-weight: 600;
+}
+
+.expense-page p:nth-child(2) {
+    color: #047857;
+    font-weight: 600;
+}
+
+.expense-page p:nth-child(3),
+.expense-page p:nth-child(4) {
+    color: #777;
+}
+
+.expense-page button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.edit {
+    background: #e8f7f0;
+    color: #047857;
+}
+
+.edit:hover {
+    background: #d4f0e3;
+}
+
+.delete {
+    background: #fde8e8;
+    color: #b42318;
+}
+
+.delete:hover {
+    background: #fbd2d2;
+}
+
+@media (max-width: 700px) {
+    .expense-page {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 450px) {
+    .expense-page {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .expense-page button {
+        width: 100%;
+    }
+}

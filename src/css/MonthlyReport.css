@@ -104,12 +104,28 @@
     border-radius: 6px;
     background: transparent;
     cursor: pointer;
+    color: black;
 }
 
 .days-grid button:hover {
     background: #eee;
 }
-
+.days-grid .btn-today{
+    background: #2563EB;
+    border-radius: 50%;
+    color: white;
+}
+.days-grid .btn-date{
+     background: #2563EB;
+    border-radius: 50%;
+    color: white;
+}
+.days-grid .btn-date:hover{
+    background: #1D4ED8;
+}
+.days-grid .btn-today:hover{
+    background: #1D4ED8;
+}
 .month-today-expense {
     width: 100%;
     max-width: 700px;

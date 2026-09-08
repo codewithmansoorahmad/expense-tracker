@@ -14,7 +14,8 @@ function YasterDaySummary({yasterday}){
                 yasterday.map((item)=>{
                     return <div className="expense-page" key={item.id}>
                         <p>{item.name}</p>
-                        <p>{item.price}</p>
+                        <p>RS:{item.price}</p>
+                        <p>{item.category}</p>
                         <p>{item.date}</p>
                     </div>
                 })

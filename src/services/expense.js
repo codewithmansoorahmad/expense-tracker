@@ -30,9 +30,17 @@ export function handleUpdateSubmit(id,navigate,event){
     const formData=new FormData(event.target)
 
     const obj=Object.fromEntries(formData)
+    const date=formData.get("date")
+    console.log(date)
+    const todayDate=new Date().toISOString().split("T")[0]
     store.dispatch(editExpense({obj,id}))
-     alert("expense updated successfully successfully")
+     alert("expense edited successfully")
+if(todayDate===date){
     navigate("/today-summary")
+
+
+}
+navigate(-1)
 }
 export function handleKey(e,name){
     // if(!e.target.checkValidity())return;
