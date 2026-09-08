@@ -6,6 +6,7 @@ import Expense from "./components/Expense"
 import TodaySummary from "./pages/TodaySummary"
 import MonthlyReport from "./pages/MonthlyReport"
 import ViewAllPage from "./pages/ViewAllPage"
+import PageNotFound from "./pages/404"
 function App() {
 
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/today-summary" element={<TodaySummary/>} />
       <Route path="/monthly-report" element={<MonthlyReport/>} />
       <Route path="/view-all" element={<ViewAllPage/>}/>
+      <Route path="/*" element={<PageNotFound/>}/>
       
       
     </Routes>
