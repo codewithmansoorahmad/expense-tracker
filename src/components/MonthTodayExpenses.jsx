@@ -13,7 +13,7 @@ function MonthTodayExpense({ monthData, selectedDate }) {
         return (
           <div className="expense-page-item" key={item.id}>
             <p>{item.name}</p>
-            <p>{item.price}</p>
+            <p>RS:{item.price}</p>
             <p>{item.time}</p>
           </div>
         );
