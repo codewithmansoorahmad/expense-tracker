@@ -20,13 +20,13 @@ function NavBar() {
           <NavLink className="link" to="/today-summary">
           <CalendarDays size={25} className="icon"/>
 
-            <span>today Summary</span>
+            <span>Today Summary</span>
           </NavLink>
         </li>
         <li>
           <NavLink className="link" to="/monthly-report">
           <ChartColumn size={25} className="icon"/>
-            <span>monthly report</span>
+            <span>Monthly report</span>
           </NavLink>
         </li>
       </ul>
