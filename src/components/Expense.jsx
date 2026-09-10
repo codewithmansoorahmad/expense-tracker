@@ -83,7 +83,6 @@ function Expense() {
             <option value="">Select Category</option>
             <option value="food">Food</option>
             <option value="Transport">Transport</option>
-            <option value="Transport">Transport</option>
             <option value="bills">Bills</option>
             <option value="utilities">Utilities</option>
             <option value="education">Education</option>
